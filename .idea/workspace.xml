@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="41020970-7762-4b09-b4db-63025dbf7b43" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1gcYj8N02teEcbSHH8xINDbyunk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="VueBemParser" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="VueBemParser" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="VueBemParser" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <alternative-path path="/snap/phpstorm/current" alternative-path-enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="VueBemParser" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="41020970-7762-4b09-b4db-63025dbf7b43" name="Default Changelist" comment="" />
+      <created>1598415481417</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598415481417</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2509" y="281" width="732" height="637" key="#Inspections" timestamp="1598441154810">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2509" y="281" width="732" height="637" key="#Inspections/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598441154810" />
+    <state x="2173" y="307" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598415937483">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2173" y="307" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598415937483" />
+    <state x="2688" y="307" width="575" height="585" key="#com.intellij.ide.util.MemberChooser" timestamp="1598507759389">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2688" y="307" width="575" height="585" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598507759389" />
+    <state x="2498" y="392" width="424" height="513" key="FileChooserDialogImpl" timestamp="1598415936241">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2498" y="392" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598415936241" />
+    <state width="1874" height="391" key="GridCell.Tab.0.bottom" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.0.center" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.0.center/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.0.center/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.0.left" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.0.left/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.0.left/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.0.right" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.0.right/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.0.right/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.1.bottom" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.1.bottom/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.1.center" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.1.center/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.1.center/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.1.left" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.1.left/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.1.left/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state width="1874" height="391" key="GridCell.Tab.1.right" timestamp="1598502508092">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="391" key="GridCell.Tab.1.right/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598502508092" />
+    <state width="881" height="340" key="GridCell.Tab.1.right/67.27.1853.1053/1920.61.1920.1080@67.27.1853.1053" timestamp="1598432483338" />
+    <state x="2571" y="208" width="618" height="783" key="find.popup" timestamp="1598416446507">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2571" y="208" width="618" height="783" key="find.popup/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598416446507" />
+    <state x="2544" y="277" key="run.anything.popup" timestamp="1598433201387">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2544" y="277" key="run.anything.popup/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598433201387" />
+    <state x="2543" y="298" width="672" height="678" key="search.everywhere.popup" timestamp="1598417040267">
+      <screen x="1920" y="61" width="1920" height="1080" />
+    </state>
+    <state x="2543" y="298" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053/1920.61.1920.1080@1920.61.1920.1080" timestamp="1598417040267" />
+  </component>
+</project>
