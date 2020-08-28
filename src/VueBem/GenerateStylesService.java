@@ -1,12 +1,18 @@
 package VueBem;
 
+import com.intellij.lang.Language;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.CaretModel;
+import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import com.intellij.psi.PsiDocumentManager;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.PsiReference;
 
 import java.util.ArrayList;
 
@@ -18,6 +24,7 @@ class GenerateStylesService {
         if (editor == null) return;
 
         final CaretModel caret = editor.getCaretModel();
+
         PsiFile file = event.getData(LangDataKeys.PSI_FILE);
         if (file == null) return;
 
@@ -26,27 +33,51 @@ class GenerateStylesService {
 
         ArrayList<Tree> classesTree = parseClassesToTree(classes);
 
-        System.out.println("styles: " + styles.size());
-        for (Tree item : styles) {
-            item.printToConsole();
-        }
+        WriteCommandAction.runWriteCommandAction(project, () -> {
 
-        System.out.println("classesTree: ");
-        for (Tree item : classesTree) {
-            item.printToConsole();
-        }
+            PsiDocumentManager documentManager = PsiDocumentManager.getInstance(project);
+            Document document = documentManager.getDocument(file);
 
-        uniteTrees(styles, classesTree);
+            String result = "";
+            for(var item : classesTree) {
+                result = result + item.toString();
+            }
+
+            document.insertString(caret.getOffset(), result);
+        });
+
+//        System.out.println("styles: " + styles.size());
+//        for (Tree item : styles) {
+//            item.printToConsole();
+//        }
+//
+//        System.out.println("classesTree: ");
+//        for (Tree item : classesTree) {
+//            item.printToConsole();
+//        }
+//
+//        ArrayList<Tree> trees = uniteTrees(styles, classesTree, 0);
+//
+//        System.out.println("trees: ");
+//        for (Tree item : trees) {
+//            item.printToConsole();
+//        }
 
     }
 
-    public static ArrayList<Tree> uniteTrees(ArrayList<Tree> to, ArrayList<Tree> from) {
-
+    public static ArrayList<Tree> uniteTrees(ArrayList<Tree> to, ArrayList<Tree> from, int index) {
         for (var result: to) {
             for (var item: from) {
-
-
-
+                if(result.data.equals(item.data)) {
+                    System.out.println("Iter " + index);
+                    result.children = uniteTrees(result.children, item.children, index++);
+                }
+                else {
+                    if(result.parent != null) {
+                        System.out.println("New child " + item.data);
+                        result.parent.addChild(item);
+                    }
+                }
             }
         }
 

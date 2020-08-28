@@ -1,12 +1,9 @@
 package VueBem;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.stream.Collectors;
 
-public class Tree implements Iterable<Tree> {
+public class Tree {
     String data;
     String content;
     ArrayList<Tree> children;
@@ -35,76 +32,42 @@ public class Tree implements Iterable<Tree> {
     }
 
     public void printToConsole() {
-        printTreeRecursive(0);
+        printTreeRecursive(this, 0);
     }
 
-    private void printTreeRecursive(int index) {
+    public String toString() {
+        return printTree(this, 0);
+    }
+
+    private String printTree(Tree item, int index) {
+        StringBuilder result = new StringBuilder();
+        result.append("\n").append("  ".repeat(Math.max(0, index)));
+        result.append(item.data).append(" {\n");
+        if(!item.content.equals("")) {
+            result.append(item.content).append("\n");
+        }
+        if(item.children.size() == 0) {
+            result.append("\n").append("  ".repeat(Math.max(0, index)));
+            return result.append("}\n").toString();
+        }
+        for (Tree child : item.children) {
+            result.append("  ".repeat(Math.max(0, index)));
+            result.append(printTree(child, index + 1));
+        }
+        return result.append("  ".repeat(Math.max(0, index))).append("}\n").toString();
+    }
+
+    private void printTreeRecursive(Tree item, int index) {
         for (int i=0; i < index; i++) {
             System.out.print("      ");
         }
-        System.out.print(this.data + " { " + this.content + "}" + "\n");
-        if(this.children.size() == 0) return;
-        for (Tree child : this.children) {
+        System.out.print(item.data + " { " + item.content + "}" + "\n");
+        if(item.children.size() == 0) return;
+        for (Tree child : item.children) {
             for (int i=0; i < index; i++) {
                 System.out.print("      ");
             }
-            printTreeRecursive(index+1);
-        }
-
-    }
-
-    @NotNull
-    @Override
-    public Iterator<Tree> iterator() {
-        return new TreeIterator(this);
-    }
-
-    static class TreeIterator implements Iterator<Tree> {
-        Tree nextTree;
-        Tree previousTree;
-        int treeIndex = 0;
-
-        public TreeIterator(Tree start) {
-            nextTree = start;
-            while (nextTree.children.size() > 0) {
-                nextTree = nextTree.children.get(0);
-            }
-        }
-
-        @Override
-        public boolean hasNext() {
-            return nextTree != null;
-        }
-
-        @Override
-        public Tree next() {
-            var result = nextTree;
-
-            if(nextTree.children.size() == 0) {
-                var parent = nextTree.parent;
-                treeIndex = parent.children.indexOf(nextTree);
-                if(treeIndex+1 < parent.children.size())
-                    nextTree = parent.children.get(treeIndex+1);
-                else
-                    nextTree = parent;
-            }
-            else {
-                treeIndex = nextTree.children.indexOf(previousTree);
-                if(treeIndex < 0)
-                    nextTree = nextTree.children.get(0);
-                else
-                    while (nextTree.children.size() > 0) {
-                        nextTree = nextTree.children.get(0);
-                    }
-            }
-
-            result = previousTree;
-            return result;
-        }
-
-        // Файл только для чтения, мы не разрешаем удаление строк
-        public void remove() {
-            throw new UnsupportedOperationException();
+            printTreeRecursive(child, index+1);
         }
     }
 }
