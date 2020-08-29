@@ -3,26 +3,26 @@ package VueBem;
 
 import java.util.ArrayList;
 
-public class Tree {
+public class CssClassTree {
     String data;
     String content;
-    ArrayList<Tree> children;
-    Tree parent;
+    ArrayList<CssClassTree> children;
+    CssClassTree parent;
 
-    public Tree() {
+    public CssClassTree() {
         this.data = "";
         this.content = "";
-        this.children = new ArrayList<Tree>();
+        this.children = new ArrayList<CssClassTree>();
     }
 
-    public Tree(String data)
+    public CssClassTree(String data)
     {
         this.data = data;
         this.content = "";
-        this.children = new ArrayList<Tree>();
+        this.children = new ArrayList<CssClassTree>();
     }
 
-    public void addChild(Tree child) {
+    public void addChild(CssClassTree child) {
         child.parent = this;
         this.children.add(child);
     }
@@ -39,35 +39,37 @@ public class Tree {
         return printTree(this, 0);
     }
 
-    private String printTree(Tree item, int index) {
+    private String printTree(CssClassTree item, int index) {
         StringBuilder result = new StringBuilder();
         result.append("\n").append("  ".repeat(Math.max(0, index)));
         result.append(item.data).append(" {\n");
         if(!item.content.equals("")) {
-            result.append(item.content).append("\n");
+            result.append("  ".repeat(Math.max(0, index)));
+            result.append(item.content);
         }
         if(item.children.size() == 0) {
             result.append("\n").append("  ".repeat(Math.max(0, index)));
             return result.append("}\n").toString();
         }
-        for (Tree child : item.children) {
+        for (CssClassTree child : item.children) {
             result.append("  ".repeat(Math.max(0, index)));
             result.append(printTree(child, index + 1));
         }
         return result.append("  ".repeat(Math.max(0, index))).append("}\n").toString();
     }
 
-    private void printTreeRecursive(Tree item, int index) {
+    private void printTreeRecursive(CssClassTree item, int index) {
         for (int i=0; i < index; i++) {
             System.out.print("      ");
         }
         System.out.print(item.data + " { " + item.content + "}" + "\n");
         if(item.children.size() == 0) return;
-        for (Tree child : item.children) {
+        for (CssClassTree child : item.children) {
             for (int i=0; i < index; i++) {
                 System.out.print("      ");
             }
             printTreeRecursive(child, index+1);
         }
     }
+
 }

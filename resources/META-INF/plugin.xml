@@ -1,19 +1,12 @@
 <idea-plugin>
   <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <name>VueBemParser</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="vet-vash@yandex.ru" url="http://www.vet-vash.com">vet-vash</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+    Parse your bem classes in html to scss tree in styles.
     ]]></description>
-
-  <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
-  </change-notes>
 
   <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="173.0"/>
@@ -28,10 +21,13 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="VueBem.ParseHtmlService" class="VueBem.ParseHtmlService" text="Create bem classes"
+    <action id="VueBem.Actions.ParseHtmlService" class="VueBem.Actions.ParseHtmlService" text="Create Bem Classes"
             description="Gives you all BEM classes in the style section">
-      <add-to-group group-id="VueBemGeneratedGroup" anchor="last"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl NUMPAD1"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="alt l"/>
+    </action>
+    <action id="VueBem.Actions.RemoveEmptyStyles" class="VueBem.Actions.RemoveEmptyStyles" text="Remove Empty Styles"
+            description="Gives you all BEM classes in the style section">
+      <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
     </action>
   </actions>
 

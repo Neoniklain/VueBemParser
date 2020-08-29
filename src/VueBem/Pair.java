@@ -1,10 +1,10 @@
 package VueBem;
 
 public class Pair {
-    public Tree value;
+    public CssClassTree value;
     public int index;
 
-    public Pair(Tree value, int index) {
+    public Pair(CssClassTree value, int index) {
         this.value = value;
         this.index = index;
     }
