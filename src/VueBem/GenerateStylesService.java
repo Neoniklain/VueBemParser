@@ -14,22 +14,19 @@ import java.util.ArrayList;
 public class GenerateStylesService {
 
     public static ArrayList<CssClassTree> uniteTrees(ArrayList<CssClassTree> to, ArrayList<CssClassTree> from) {
-        for (var result : to) {
-            for (var item : from) {
-                if (result.data.equals(item.data)) {
-                    for (var i: item.children) {
-                        CssClassTree find = result.children.stream().filter(x -> x.data.equals(i.data)).findFirst().orElse(null);
-                        if(find == null) {
-                            result.addChild(i);
-                        } else {
-                            if(find.children.size() > 0 && i.children.size() > 0) {
-                                uniteTrees(find.children, i.children);
-                            }
-                            if(find.children.size() == 0 && i.children.size() > 0) {
-                               find.children =  i.children;
-                            }
-                        }
-                    }
+        if (to.size() == 0) {
+            return from;
+        }
+        for (var item : from) {
+            CssClassTree find = to.stream().filter(x -> x.data.equals(item.data)).findFirst().orElse(null);
+            if (find == null) {
+                to.add(item);
+            } else {
+                if (find.children.size() > 0 && item.children.size() > 0) {
+                    uniteTrees(find.children, item.children);
+                }
+                if (find.children.size() == 0 && item.children.size() > 0) {
+                    find.children = item.children;
                 }
             }
         }
@@ -146,13 +143,13 @@ public class GenerateStylesService {
                 tree = new CssClassTree(rootClass);
                 result.add(tree);
             }
-            if(!child.equals("")) {
+            if (!child.equals("")) {
                 CssClassTree childrenTree = findTree(tree.children, child);
                 if (childrenTree == null) {
                     childrenTree = new CssClassTree(child);
                     tree.addChild(childrenTree);
                 }
-                if(!childChild.isEmpty()) {
+                if (!childChild.isEmpty()) {
                     CssClassTree childrenChildrenTree = findTree(childrenTree.children, childChild);
                     if (childrenChildrenTree == null) {
                         childrenTree.addChild(new CssClassTree(childChild));
@@ -242,7 +239,7 @@ public class GenerateStylesService {
 
     public static CssClassTree removeEmptyNodes(CssClassTree item) {
 
-        if(item.children.size() > 0) {
+        if (item.children.size() > 0) {
             ArrayList<CssClassTree> childrens = new ArrayList<>();
             for (var child : item.children) {
                 CssClassTree childResult = removeEmptyNodes(child);
@@ -254,7 +251,7 @@ public class GenerateStylesService {
             item.children = childrens;
         }
 
-        if(item.content.isEmpty() && item.children.size() == 0) {
+        if (item.content.isEmpty() && item.children.size() == 0) {
             return null;
         }
 
@@ -270,13 +267,13 @@ public class GenerateStylesService {
             Document document = documentManager.getDocument(file);
 
             String result = "";
-            for(var item : classesTree) {
+            for (var item : classesTree) {
                 result = result + item.toString();
             }
 
             String startTag = "<style";
             String endTag = "</style>";
-            var text =  document.getText();
+            var text = document.getText();
             int startIndex = text.indexOf(startTag);
             int endIndex = text.indexOf(endTag);
             int startStyleBlock = document.getText().indexOf("\n", startIndex);
@@ -293,7 +290,7 @@ public class GenerateStylesService {
             Document document = documentManager.getDocument(file);
 
             String result = "";
-            for(var item : classesTree) {
+            for (var item : classesTree) {
                 result = result + item.toString();
             }
 
