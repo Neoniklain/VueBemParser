@@ -75,8 +75,7 @@ public class GenerateStylesService {
                     word = words[j];
                     if (word.length() == 0) continue;
                     result.add(getWord(word));
-                    char c = word.toCharArray()[word.length() - 1];
-                    if (c == '\"' || c == '>') {
+                    if (word.indexOf('\"') > 0) {
                         break;
                     }
                 }
@@ -152,6 +151,7 @@ public class GenerateStylesService {
     }
 
     private static String getWord(String word) {
+        System.out.println("getWord " + word);
         String startTag = "class=\"";
         int startIndex = word.indexOf(startTag);
         if (startIndex >= 0) {
