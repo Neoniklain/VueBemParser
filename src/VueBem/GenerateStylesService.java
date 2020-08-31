@@ -13,19 +13,26 @@ import java.util.ArrayList;
 
 public class GenerateStylesService {
 
-    public static ArrayList<CssClassTree> uniteTrees(ArrayList<CssClassTree> to, ArrayList<CssClassTree> from, int index) {
+    public static ArrayList<CssClassTree> uniteTrees(ArrayList<CssClassTree> to, ArrayList<CssClassTree> from) {
         for (var result : to) {
             for (var item : from) {
                 if (result.data.equals(item.data)) {
-                    result.children = uniteTrees(result.children, item.children, index++);
-                } else {
-                    if (result.parent != null) {
-                        result.parent.addChild(item);
+                    for (var i: item.children) {
+                        CssClassTree find = result.children.stream().filter(x -> x.data.equals(i.data)).findFirst().orElse(null);
+                        if(find == null) {
+                            result.addChild(i);
+                        } else {
+                            if(find.children.size() > 0 && i.children.size() > 0) {
+                                uniteTrees(find.children, i.children);
+                            }
+                            if(find.children.size() == 0 && i.children.size() > 0) {
+                               find.children =  i.children;
+                            }
+                        }
                     }
                 }
             }
         }
-
         return to;
     }
 
@@ -55,8 +62,8 @@ public class GenerateStylesService {
 
             if (word.contains("class=\"{")) {
                 StringBuilder difClass = new StringBuilder();
-                for (int j = i; j < words.length; j++, i++) {
-                    word = words[j];
+                for (; i < words.length; i++) {
+                    word = words[i];
                     difClass.append(" ").append(word);
                     if (word.contains("}")) {
                         break;
@@ -71,11 +78,15 @@ public class GenerateStylesService {
             }
 
             if (word.contains("class=\"")) {
-                for (int j = i; j < words.length; j++, i++) {
-                    word = words[j];
+                for (; i < words.length; ++i) {
+                    word = words[i];
                     if (word.length() == 0) continue;
                     result.add(getWord(word));
-                    if (word.indexOf('\"') > 0) {
+                    int first = word.indexOf('"');
+                    int last = word.lastIndexOf('"');
+                    int classIndex = word.indexOf("class=\"");
+
+                    if ((classIndex >= 0 && first != last) || (last >= 0 && classIndex < 0)) {
                         break;
                     }
                 }
@@ -132,12 +143,16 @@ public class GenerateStylesService {
 
             CssClassTree tree = findTree(result, rootClass);
             if (tree == null) {
-                result.add(new CssClassTree(rootClass));
-            } else if(!child.equals("")) {
+                tree = new CssClassTree(rootClass);
+                result.add(tree);
+            }
+            if(!child.equals("")) {
                 CssClassTree childrenTree = findTree(tree.children, child);
                 if (childrenTree == null) {
-                    tree.addChild(new CssClassTree(child));
-                } else if(!childChild.isEmpty()) {
+                    childrenTree = new CssClassTree(child);
+                    tree.addChild(childrenTree);
+                }
+                if(!childChild.isEmpty()) {
                     CssClassTree childrenChildrenTree = findTree(childrenTree.children, childChild);
                     if (childrenChildrenTree == null) {
                         childrenTree.addChild(new CssClassTree(childChild));
@@ -151,7 +166,6 @@ public class GenerateStylesService {
     }
 
     private static String getWord(String word) {
-        System.out.println("getWord " + word);
         String startTag = "class=\"";
         int startIndex = word.indexOf(startTag);
         if (startIndex >= 0) {

@@ -27,6 +27,13 @@ public class CssClassTree {
         this.children.add(child);
     }
 
+    public void addChildes(ArrayList<CssClassTree> child) {
+        for (var item : child) {
+            item.parent = this;
+            addChild(item);
+        }
+    }
+
     public void setData(String newData) {
         this.data = newData;
     }
@@ -44,13 +51,19 @@ public class CssClassTree {
         result.append("\n").append("  ".repeat(Math.max(0, index)));
         result.append(item.data).append(" {\n");
         if(!item.content.equals("")) {
-            result.append("  ".repeat(Math.max(0, index)));
-            result.append(item.content);
+            result.append("  ".repeat(Math.max(0, index+1)));
+            result.append(item.content.trim()
+                    .replace("; ", ";\n" + "  ".repeat(Math.max(0, index+1)))
+            );
         }
+
         if(item.children.size() == 0) {
             result.append("\n").append("  ".repeat(Math.max(0, index)));
             return result.append("}\n").toString();
+        } else {
+            result.append("\n");
         }
+
         for (CssClassTree child : item.children) {
             result.append("  ".repeat(Math.max(0, index)));
             result.append(printTree(child, index + 1));

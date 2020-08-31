@@ -17,21 +17,20 @@ public class ParseHtmlService extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {
-        final Project project = event.getData(PlatformDataKeys.PROJECT);
         final Editor editor = event.getData(PlatformDataKeys.EDITOR);
         if (editor == null) return;
-
-//        final CaretModel caret = editor.getCaretModel();
 
         PsiFile file = event.getData(LangDataKeys.PSI_FILE);
         if (file == null) return;
 
         ArrayList<String> classes = GenerateStylesService.getClassesFromTemplate(file);
-//        ArrayList<Tree> styles = GenerateStylesService.getStyleFromTemplate(file);
+        ArrayList<CssClassTree> styles = GenerateStylesService.getStyleFromTemplate(file);
 
         ArrayList<CssClassTree> classesTree = GenerateStylesService.parseClassesToTree(classes);
 
-        GenerateStylesService.writeTreeAsStyleInDocument(classesTree, event);
+        ArrayList<CssClassTree> result = GenerateStylesService.uniteTrees(styles, classesTree);
+
+        GenerateStylesService.replaceStylesInDocument(result, event);
 
     }
 }
